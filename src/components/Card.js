@@ -12,7 +12,13 @@ class TurismCard extends HTMLElement {
         const Destino = this.getAttribute("Destino");
         const Duracion = this.getAttribute("Duracion");
         const Costo = this.getAttribute("Costo");
-        const Descripcion = this.getAttribute("Descripcion") === "true";
+        const Descripcion = this.getAttribute("Descripcion");
+        const Actividades = this.getAttribute("Actividades");
+        const Disponibilidad = this.getAttribute("Disponibilidad");
+        const imgen = this.getAttribute("imagen");
+        const calificacion = this.getAttribute("calificacion");
+        const alojamiento = this.getAttribute("alojamiento");
+        const guia_incluido = this.getAttribute("guia_incluido");
 
         this.shadowRoot.innerHTML = `
             <style>
@@ -34,11 +40,19 @@ class TurismCard extends HTMLElement {
             </div>
         `;
 
+        this.shadowRoot.querySelector("#toggleStatus").addEventListener("click", () => {
+            this.toggleStatus();
+        });
     }
 
-
+    toggleStatus() {
+        const newStatus = this.getAttribute("Si") === "true" ? "false" : "true";
+        this.setAttribute("attended", newStatus);
+        this.dispatchEvent(new CustomEvent("statusChanged", { detail: { attended: newStatus, element: this }, bubbles: true }));
+        this.render(); // Asegura que el contenido se actualice
+    }
     
 }
 
-export default TurismCard;
+export default PatientCard;
 
