@@ -4,18 +4,22 @@ class TurismCard extends HTMLElement {
         this.attachShadow({ mode: "open" });
     }
 
+    static get observedAttributes() {
+        return ['Destino', 'Duracion', 'Costo', 'Descripcion', 'Actividades', 'reservado', 'imagen', 'calificacion', 'alojamiento', 'guia_incluido'];
+    }
+
     connectedCallback() {
         this.render();
     }
 
     render() {
-        const Destino = this.getAttribute("Destino");
-        const Duracion = this.getAttribute("Duracion");
-        const Costo = this.getAttribute("Costo");
-        const Descripcion = this.getAttribute("Descripcion");
-        const Actividades = this.getAttribute("Actividades");
-        const Disponibilidad = this.getAttribute("Disponibilidad");
-        const imgen = this.getAttribute("imagen");
+        const destino = this.getAttribute("Destino");
+        const duracion = this.getAttribute("Duracion");
+        const costo = this.getAttribute("Costo");
+        const descripcion = this.getAttribute("Descripcion");
+        const actividades = this.getAttribute("Actividades");
+        const reservado = this.getAttribute("reservado");
+        const imagen = this.getAttribute("imagen");
         const calificacion = this.getAttribute("calificacion");
         const alojamiento = this.getAttribute("alojamiento");
         const guia_incluido = this.getAttribute("guia_incluido");
