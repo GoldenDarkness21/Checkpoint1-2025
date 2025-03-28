@@ -47,12 +47,12 @@ class TurismCard extends HTMLElement {
 
     toggleStatus() {
         const newStatus = this.getAttribute("Si") === "true" ? "false" : "true";
-        this.setAttribute("attended", newStatus);
+        this.setAttribute("Si", newStatus);
         this.dispatchEvent(new CustomEvent("statusChanged", { detail: { attended: newStatus, element: this }, bubbles: true }));
-        this.render(); // Asegura que el contenido se actualice
+        this.render();
     }
     
 }
 
-export default PatientCard;
+export default TurismCard;
 
