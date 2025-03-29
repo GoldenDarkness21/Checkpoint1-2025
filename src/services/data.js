@@ -1,3 +1,4 @@
+
 class TurismApp extends HTMLElement {
     constructor() {
         super();
@@ -16,3 +17,4 @@ class TurismApp extends HTMLElement {
 }
 
 export default TurismApp;
+

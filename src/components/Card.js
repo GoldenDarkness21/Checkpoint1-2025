@@ -1,3 +1,5 @@
+import { getData } from "../services/getdata.js";
+
 class TurismCard extends HTMLElement {
     constructor() {
         super();
@@ -8,9 +10,13 @@ class TurismCard extends HTMLElement {
         return ['Destino', 'Duracion', 'Costo', 'Descripcion', 'Actividades', 'reservado', 'imagen', 'calificacion', 'alojamiento', 'guia_incluido'];
     }
 
+    
+
     connectedCallback() {
         this.render();
     }
+
+    
 
     render() {
         const destino = this.getAttribute("Destino");
